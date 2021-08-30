@@ -2,6 +2,9 @@ package com.BridgeLabz;
 import java.util.Scanner;
 public class TicTacToe {
     public static final char[] boardarray = new char[10];
+    public static char f;
+
+    public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         createBoard();
@@ -19,14 +22,15 @@ public class TicTacToe {
     }
 
     public static void PlayerOption() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Player One: Choose X or O =");
-        char playerChoose = sc.next().charAt(0);
-        System.out.println(playerChoose);
-        if (playerChoose == 'X') {
-            System.out.println("Player Selected X");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Player choose X or O =");
+        char player = scanner.next().charAt(0);
+        if (player == 'X' || player == 'x') {
+            System.out.println("Player Choose X");
+            System.out.println("CPU Choice O");
         } else {
-            System.out.println("CPU Selected O");
+            System.out.println("Player Choose O");
+            System.out.println("CPU Choice X ");
         }
     }
 
@@ -40,7 +44,6 @@ public class TicTacToe {
             if (i == 3 || i == 6) {
                 System.out.println("\n-----------------");
             }
-
         }
         System.out.println("\n-----------------");
     }
