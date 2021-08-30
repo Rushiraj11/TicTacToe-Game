@@ -6,6 +6,7 @@ public class TicTacToe {
     public static void main(String[] args) {
         createBoard();
         PlayerOption();
+        printBoard();
     }
 
     public static void createBoard() {
@@ -27,6 +28,21 @@ public class TicTacToe {
         } else {
             System.out.println("CPU Selected O");
         }
+    }
+
+    public static void printBoard() {
+        int count = 0;
+        int i;
+        for (i = 1; i < boardarray.length; i++) {
+            count++;
+            boardarray[i] = ' ';
+            System.out.print("| " + boardarray[i] + " | ");
+            if (i == 3 || i == 6) {
+                System.out.println("\n-----------------");
+            }
+
+        }
+        System.out.println("\n-----------------");
     }
 }
 
