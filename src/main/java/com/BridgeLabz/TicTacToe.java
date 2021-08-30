@@ -8,7 +8,7 @@ public class TicTacToe {
 
     public static void main(String[] args) {
         createBoard();
-        PlayerOption();
+        PlayerChoice();
         printBoard();
     }
 
@@ -21,7 +21,7 @@ public class TicTacToe {
         }
     }
 
-    public static void PlayerOption() {
+    public static void PlayerChoice() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Player choose X or O =");
         char player = scanner.next().charAt(0);
