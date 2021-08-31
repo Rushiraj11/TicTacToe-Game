@@ -1,16 +1,22 @@
 package com.BridgeLabz;
+
+import java.util.Random;
 import java.util.Scanner;
+
 public class TicTacToe {
     public static final char[] boardarray = new char[10];
     public static int userInputNum;
     public static char player;
     public static Scanner sc = new Scanner(System.in);
+    public static Random r = new Random();
+
     public static void main(String[] args) {
         createBoard();
         PlayerChoice();
         printBoard();
         playerCall();
         userMove();
+        flipCoinToss();
     }
 
     public static void createBoard() {
@@ -18,7 +24,7 @@ public class TicTacToe {
         for (i = 1; i < boardarray.length; i++) {
             boardarray[i] = ' ';
             {
-               if (boardarray[i] != 'X' && boardarray[i] != 'O') {
+                if (boardarray[i] != 'X' && boardarray[i] != 'O') {
                     boardarray[i] = (char) (i + '0');
                 }
             }
@@ -29,13 +35,13 @@ public class TicTacToe {
         System.out.println("Player choose X or O =");
         player = sc.next().charAt(0);
         if (player == 'X' || player == 'x') {
-            System.out.println("Player Choose X" );
+            System.out.println("Player Choose X");
             System.out.println("CPU Choice O");
-        }else if (player == 'O' || player == 'o') {
+        } else if (player == 'O' || player == 'o') {
             System.out.println("Player Choose O");
             System.out.println("CPU Choice X ");
         } else
-        System.out.println("Invalid Selection");
+            System.out.println("Invalid Selection");
     }
 
     public static void printBoard() {
@@ -66,17 +72,26 @@ public class TicTacToe {
     public static void userMove() {
         if (boardarray[userInputNum] == 'X' || boardarray[userInputNum] == 'O') {
             printBoard();
-           System.out.println("Number which is selected is not free");
-        } else if (boardarray[userInputNum] !=' ') {
+            System.out.println("Number which is selected is not free");
+        } else if (boardarray[userInputNum] != ' ') {
             System.out.println("Position is Occupied");
-        }
-        else {
+        } else {
             boardarray[userInputNum] = player;
             System.out.println(player + "  is marked at " + userInputNum);
-        } printBoard();
+        }
+        printBoard();
+    }
 
+    public static void flipCoinToss() {
+        System.out.println("Flip coin To Check who Plays First");
+        int toss = r.nextInt(2);
+        if (toss == 0) {
+            System.out.println("It's Heads Player Plays first");
+        } else {
+            System.out.println("It's Tails CPU Plays first");
+        }
     }
-    }
+}
 
 
 
